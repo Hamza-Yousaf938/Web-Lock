@@ -1,0 +1,10 @@
+project_id = "hbqrjxncrswigfffwhxx"
+
+[functions.sync-rules]
+verify_jwt = false
+
+[functions.sync-stats]
+verify_jwt = false
+
+[functions.devices-pair]
+verify_jwt = false

@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WebLock — Calm Focus design system. All tokens HSL. */
+
+@layer base {
+  :root {
+    /* Calm Focus palette */
+    --background: 215 35% 7%;          /* #0F172A navy */
+    --foreground: 210 40% 98%;
+
+    --surface: 217 33% 11%;             /* slightly lifted card */
+    --surface-elevated: 217 33% 14%;
+
+    --card: 217 33% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;             /* #3B82F6 electric blue */
+    --primary-foreground: 215 35% 7%;
+    --primary-glow: 217 91% 70%;
+
+    --secondary: 217 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 30% 16%;
+    --muted-foreground: 217 15% 65%;
+
+    --accent: 187 92% 81%;              /* #A5F3FC cyan accent */
+    --accent-foreground: 215 35% 7%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 70% 45%;
+    --warning: 38 92% 55%;
+
+    --border: 217 30% 20%;
+    --input: 217 30% 18%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(217 91% 60% / 0.18), transparent 60%),
+                     radial-gradient(ellipse at bottom right, hsl(187 92% 81% / 0.10), transparent 50%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-card: linear-gradient(180deg, hsl(217 33% 13%), hsl(217 33% 10%));
+
+    --shadow-glow: 0 0 60px -10px hsl(var(--primary) / 0.4);
+    --shadow-elevated: 0 20px 60px -20px hsl(215 50% 3% / 0.6);
+
+    --sidebar-background: 217 33% 9%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 215 35% 7%;
+    --sidebar-accent: 217 33% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 30% 18%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  /* Light mode kept for completeness; default app is dark */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 215 35% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 7%;
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 16% 40%;
+    --border: 214 32% 90%;
+    --input: 214 32% 90%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { font-family: 'Manrope', system-ui, -apple-system, sans-serif; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, h5 { font-family: 'Sora', system-ui, sans-serif; letter-spacing: -0.02em; }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--accent)));
+  }
+  .glass {
+    background: hsl(var(--surface) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+  }
+}

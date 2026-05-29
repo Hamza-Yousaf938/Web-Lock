@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>WebLock</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">WebLock</div>
+    <div id="modeBadge" class="badge">…</div>
+  </header>
+
+  <!-- LOCAL MODE -->
+  <section id="localView" class="view hidden">
+    <div class="row toggle-row">
+      <label class="switch">
+        <input type="checkbox" id="enableToggle" />
+        <span class="slider"></span>
+      </label>
+      <span>Blocking enabled</span>
+    </div>
+
+    <div class="add-row">
+      <input id="newDomain" type="text" placeholder="example.com" />
+      <button id="addBtn" class="primary">Add</button>
+    </div>
+
+    <ul id="siteList" class="sites"></ul>
+    <p id="emptyHint" class="hint hidden">No sites blocked yet. Add one above.</p>
+
+    <button id="pairBtn" class="ghost full">🔗 Pair with WebLock Cloud</button>
+  </section>
+
+  <!-- CLOUD MODE -->
+  <section id="cloudView" class="view hidden">
+    <div class="cloud-status">
+      <div class="dot"></div>
+      <div>
+        <div class="cloud-title">Managed by WebLock Cloud</div>
+        <div id="deviceName" class="cloud-sub">Paired device</div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div id="domainCount" class="stat-num">0</div>
+        <div class="stat-label">Sites blocked</div>
+      </div>
+      <div class="stat">
+        <div id="focusState" class="stat-num">Off</div>
+        <div class="stat-label">Focus mode</div>
+      </div>
+    </div>
+
+    <div id="focusTimer" class="focus-timer hidden"></div>
+
+    <button id="openDashBtn" class="primary full">Open dashboard</button>
+    <button id="syncNowBtn" class="ghost full">Sync now</button>
+    <button id="unpairBtn" class="danger full">Unpair this device</button>
+    <p class="hint">Last synced: <span id="syncedAt">—</span></p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
